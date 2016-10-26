@@ -15,6 +15,7 @@ Checkout this repo, install dependencies, then start the process with the follow
 	> npm install
 	> npm run dev
 ```
+Point your browswer to http://localhost:8080
 
 ####Production Environment?#####
 Checkout this repo, install dependencies, set environment variable, then start the process with the following:
@@ -27,3 +28,4 @@ Checkout this repo, install dependencies, set environment variable, then start t
 	> npm run postinstall
 	> npm start
 ```
+Point your browswer to http://localhost:5000
