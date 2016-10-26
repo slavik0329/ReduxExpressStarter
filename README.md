@@ -1,4 +1,4 @@
-# ReduxSimpleStarter
+# ReduxExpressStarter
 
 ###Getting Started###
 
