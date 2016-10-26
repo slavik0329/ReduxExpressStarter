@@ -1,5 +1,7 @@
 # ReduxExpressStarter
 
+Use this webpack enabled boilerplate to quickly get started on a fullstack application running React, Redux and Bootstrap Material on the frontend with Node and Express on the backend.
+
 ###Getting Started###
 
 There are two methods for getting started with this repo.
