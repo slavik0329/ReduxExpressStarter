@@ -1,4 +1,6 @@
-simport React, { Component } from 'react';
+'use strict';
+
+import React, { Component } from 'react';
 
 class App extends Component {
   render() {
