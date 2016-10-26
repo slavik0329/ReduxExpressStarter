@@ -1,15 +1,17 @@
 {
-  "name": "redux-simple-starter",
+  "name": "redux-express-starter",
   "version": "1.0.0",
-  "description": "Simple starter package for Redux with React and Babel support",
+  "description": "Simple starter package for Redux with React, Router, Boostrap Material and Babel support",
   "main": "index.js",
-  "repository": "git@github.com:StephenGrider/ReduxSimpleStarter.git",
+  "repository": "https://github.com/rgdalessandro/ReduxSimpleStarter.git",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "postinstall": "webpack -p",
+    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "start": "nodemon ./server/server.js",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch"
   },
-  "author": "",
+  "author": "Ricardo D'Alessandro",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.2.1",
@@ -21,6 +23,7 @@
     "jquery": "^2.2.1",
     "jsdom": "^8.1.0",
     "mocha": "^2.4.5",
+    "nodemon": "^1.11.0",
     "react-addons-test-utils": "^0.14.7",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"

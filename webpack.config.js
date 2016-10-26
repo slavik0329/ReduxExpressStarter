@@ -1,11 +1,11 @@
 module.exports = {
   entry: [
-    './src/index.js'
+    './client/index.js'
   ],
   output: {
-    path: __dirname,
-    publicPath: '/',
-    filename: 'bundle.js'
+    path: './public',
+    publicPath: './public',
+    filename: 'bundle.js',
   },
   module: {
     loaders: [{
@@ -21,6 +21,6 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: './'
+    contentBase: './public'
   }
 };
