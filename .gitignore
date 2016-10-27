@@ -1,19 +1,40 @@
-/node_modules
+### Bundle.js
 /public/bundle.js
-npm-debug.log
 
-# IntelliJ
-*.iml
-/.idea
+### Windows ###
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
 
-# Folder view configuration files
-.DS_Store
+# Folder config file
 Desktop.ini
 
-# Thumbnail cache files
-._*
-Thumbs.db
+# Windows shortcuts
+*.lnk
 
-# Files that might appear on external disks
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
 .Spotlight-V100
 .Trashes
+
+### Linux ###
+*~
+
+### Node ###
+# Logs
+logs
+*.log
+
+# Deps
+node_modules
+
+### IntelliJ
+*.iml
+/.idea
