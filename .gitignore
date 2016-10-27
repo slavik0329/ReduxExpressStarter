@@ -28,13 +28,25 @@ Desktop.ini
 *~
 
 ### Node ###
+lib-cov
+*.seed
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+
 # Logs
 logs
 *.log
 
+### Bower ###
+**/bower_components/
+
 # Deps
 node_modules
 
-### IntelliJ
+### IntelliJ & PhPStorm
 *.iml
 /.idea
