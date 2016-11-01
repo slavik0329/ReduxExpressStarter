@@ -8,7 +8,8 @@ import {PageContainer} from 'slavik-component-library';
 class Page extends Component {
   static propTypes = {
     children: React.PropTypes.node,
-    pageName: React.PropTypes.string
+    pageName: React.PropTypes.string,
+    style: React.PropTypes.object,
   };
 
   render() {
@@ -16,7 +17,9 @@ class Page extends Component {
       <Toolbar
         selectedLink={this.props.pageName} />
       <PageContainer>
-        {this.props.children}
+        <div {...this.props}>
+          {this.props.children}
+        </div>
       </PageContainer>
     </div>;
   }

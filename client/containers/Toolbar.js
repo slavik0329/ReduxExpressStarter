@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 
-import ToolbarLink from './ToolbarLink'
+import ToolbarLink from '../components/ToolbarLink'
 import FaBars from 'react-icons/lib/fa/bars';
 
 const Radium = require('radium');

@@ -4,11 +4,15 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { Router, browserHistory } from 'react-router';
 import {StyleRoot} from 'radium';
+import thunkMiddleware from 'redux-thunk';
+import createLogger from 'redux-logger';
 
 import reducers from './reducers';
 import routes from './routes.js';
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+const logger = createLogger();
+
+const createStoreWithMiddleware = applyMiddleware(thunkMiddleware, logger)(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>

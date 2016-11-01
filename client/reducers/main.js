@@ -1,5 +1,6 @@
 const initialState = {
-  page: null
+  page: null,
+  counter: 0
 };
 
 export default function main(state = initialState, action) {
@@ -9,6 +10,12 @@ export default function main(state = initialState, action) {
       return {
         ...state,
         page: action.page
+      }
+
+    case "SET_COUNTER":
+      return {
+        ...state,
+        counter: action.count
       }
 
   }
