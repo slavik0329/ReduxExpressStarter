@@ -4,7 +4,7 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: [
-    './client/index.js'
+    './client/Index.js'
   ],
   output: {
     path: './public',

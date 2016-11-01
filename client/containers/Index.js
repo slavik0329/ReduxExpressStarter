@@ -2,9 +2,9 @@
 
 import React, { Component } from 'react';
 
-import PageContainer from './PageContainer';
+import PageContainer from '../components/PageContainer';
 
-class App extends Component {
+class Index extends Component {
   render() {
     return <PageContainer>
       Fuck
@@ -12,4 +12,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Index;
