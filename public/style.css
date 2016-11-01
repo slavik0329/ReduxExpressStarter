@@ -5,4 +5,9 @@ body, html, div {
 
 body {
     background-color: #EEE;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
 }

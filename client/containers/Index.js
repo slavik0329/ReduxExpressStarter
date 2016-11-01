@@ -2,13 +2,13 @@
 
 import React, { Component } from 'react';
 
-import PageContainer from '../components/PageContainer';
+import Page from './Page';
 
 class Index extends Component {
   render() {
-    return <PageContainer>
-      Fuck
-    </PageContainer>;
+    return <Page pageName={"Dashboard"}>
+        Dashboard
+      </Page>;
   }
 }
 
