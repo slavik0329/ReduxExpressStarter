@@ -20,6 +20,8 @@ const styles = {
     fontWeight: 200,
     color: "#666",
     fontFamily: "Roboto Slab",
-    marginBottom: "10px"
+    marginBottom: "10px",
+    borderBottom: "1px solid #AAA",
+    paddingBottom: 2
   },
 };

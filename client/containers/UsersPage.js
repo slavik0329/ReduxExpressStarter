@@ -8,6 +8,7 @@ import { fetchUsersList } from '../actions/main';
 
 import Page from './Page';
 import SectionTitle from "../components/SectionTitle";
+import UserRow from "../components/UserRow";
 
 const mapStateToProps = (state) => ({
   main: state.main
@@ -23,10 +24,7 @@ class UsersPage extends Component {
       return null;
     }
 
-    return this.props.main.usersList.map((user, i)=><div style={styles.user} key={i}>
-      <div style={styles.username}>{user.local.username}</div>
-      <div style={styles.email}>{user.local.email}</div>
-    </div>)
+    return this.props.main.usersList.map((user, i)=><UserRow data={user} key={i} />)
   }
 
   render() {

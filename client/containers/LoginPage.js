@@ -2,6 +2,7 @@ import Radium from "radium";
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { login } from '../actions/main';
+import { browserHistory } from 'react-router'
 
 import Toolbar from './Toolbar'
 
@@ -22,7 +23,11 @@ export class LoginPage extends React.Component {
   }
 
   componentDidMount() {
-
+    setTimeout(()=>{ // Wait for account load
+      if ( this.props.main.account ) {
+        browserHistory.push("/");
+      }
+    }, 50);
   }
 
   handleLoginPress() {

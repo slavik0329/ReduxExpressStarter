@@ -5,6 +5,7 @@ import Page from "./Page";
 import DataBlock from "../components/DataBlock";
 import SectionTitle from "../components/SectionTitle";
 import {BtcTicker} from 'slavik-component-library';
+import { browserHistory } from 'react-router'
 
 import {connect} from 'react-redux'
 
@@ -17,7 +18,11 @@ class Index extends Component {
   }
 
   componentDidMount() {
-
+    setTimeout(()=>{ // Wait for account load
+      if ( !this.props.main.account ) {
+        browserHistory.push("/login");
+      }
+    }, 50);
   }
 
   componentWillUnmount() {
