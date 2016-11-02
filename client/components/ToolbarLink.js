@@ -9,6 +9,7 @@ export class ToolbarLink extends React.Component {
     anchor: React.PropTypes.string, // anchor to go to instead of regular link
     dest: React.PropTypes.string,
     name: React.PropTypes.string.isRequired,
+    onPress: React.PropTypes.func,
     selectedLink: React.PropTypes.string,
     type: React.PropTypes.string // Display type
   };
@@ -46,6 +47,10 @@ export class ToolbarLink extends React.Component {
       inner = <Link2
         to={this.props.dest}
         style={[styles.link, linkStyle]}>{this.props.name}</Link2>
+    } else if (this.props.onPress) {
+      inner = <div
+        style={[styles.link, linkStyle]}
+        onClick={this.props.onPress}>{this.props.name}</div>
     } else {
       inner = <div
         style={[styles.link, linkStyle]}

@@ -8,7 +8,7 @@ import FaBars from 'react-icons/lib/fa/bars';
 const Radium = require('radium');
 
 const mapStateToProps = (state) => ({
-  // main: state.main
+  main: state.main
 });
 
 export class Toolbar extends React.Component {
@@ -32,7 +32,7 @@ export class Toolbar extends React.Component {
   }
 
   render () {
-    const links = [
+    let links = [
       {
         name: "Dashboard",
         link: "/"
@@ -40,12 +40,20 @@ export class Toolbar extends React.Component {
       {
         name: "Users",
         link: "/users"
-      },
-      {
-        name: "Login",
-        link: "/login"
       }
     ];
+
+    if ( this.props.main.account ) {
+      links.push({
+        name: "Logout",
+        link: "/logout"
+      });
+    } else {
+      links.push({
+        name: "Login",
+        link: "/login"
+      });
+    }
 
     return (
       <div style={styles.container}>
