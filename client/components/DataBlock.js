@@ -20,12 +20,13 @@ export default DataBlock;
 
 const styles = {
   container: {
-    width: 160,
+    // width: 160,
+    flexGrow: 1,
     height: 80,
-    border: "1px solid #EEE",
     padding: 20,
     borderRadius: 4,
-    margin: 6
+    margin: "6px 3px",
+    backgroundColor: "#FFF"
   },
   title: {
     textAlign: "center",

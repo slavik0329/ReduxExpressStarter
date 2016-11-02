@@ -3,6 +3,7 @@
 import React, {Component} from "react";
 import Page from "./Page";
 import DataBlock from "../components/DataBlock";
+import SectionTitle from "../components/SectionTitle";
 
 import {connect} from 'react-redux'
 
@@ -23,6 +24,8 @@ class Index extends Component {
 
   render() {
     return <Page pageName={"Dashboard"} style={styles.container}>
+      <SectionTitle title={"Dashboard"}/>
+
       <div style={styles.dataBlockHolder}>
         <DataBlock
           title="Total Users"
@@ -53,6 +56,9 @@ const styles = {
   },
   dataBlockHolder: {
     display: "flex",
-    justifyContent: "center"
+    justifyContent: "space-around",
+    backgroundColor: "#c1d8e2",
+    borderRadius: 4,
+    padding: "0 4px"
   }
 };
