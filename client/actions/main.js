@@ -9,6 +9,19 @@ function setAccount(account) {
   }
 }
 
+export function fetchUsersList () {
+  return (dispatch) =>{
+    setTimeout(()=>{
+      API.adminGetUsers(res=>{
+        dispatch({
+          type: "SET_USERS_LIST",
+          usersList: res.users
+        })
+      })
+    }, 10);
+  }
+}
+
 export function login(email, password) {
   return (dispatch) => {
     API.login(email, password, res=>{
@@ -30,7 +43,7 @@ export function logout() {
 }
 
 export function checkLogin() {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     const account = Utils.getStore("account");
     if ( account ) {
       dispatch(setAccount(account));

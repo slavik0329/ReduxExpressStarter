@@ -1,5 +1,6 @@
 const initialState = {
-  account: null
+  account: null,
+  usersList: null
 };
 
 export default function main(state = initialState, action) {
@@ -9,8 +10,13 @@ export default function main(state = initialState, action) {
       return {
         ...state,
         account: action.account
-      }
+      };
 
+    case "SET_USERS_LIST":
+      return {
+        ...state,
+        usersList: action.usersList
+      }
 
   }
 
