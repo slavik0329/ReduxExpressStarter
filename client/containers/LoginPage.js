@@ -1,11 +1,13 @@
 import Radium from "radium";
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { login } from '../actions/main';
 
 import Toolbar from './Toolbar'
 import API from '../api'
 
 const mapStateToProps = (state) => ({
+  main: state.main
 });
 
 export class LoginPage extends React.Component {
@@ -21,23 +23,18 @@ export class LoginPage extends React.Component {
   }
 
   componentDidMount() {
-    API.getLoginStatus(res=>{
-        console.log("Login status: ", res);
-      }
-    )
+
   }
 
   handleLoginPress() {
-    API.login(this.state.email, this.state.password, res=>{
-      console.log(res);
-    });
+    this.props.dispatch(login(this.state.email, this.state.password));
   }
 
   render () {
     return (
       <div>
         <Toolbar
-          selectedLink={"Give Food"}/>
+          selectedLink={"Login"}/>
 
         <div style={styles.loginBox}>
           <input

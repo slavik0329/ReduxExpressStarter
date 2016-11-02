@@ -29,7 +29,7 @@ class Index extends Component {
       <div style={styles.dataBlockHolder}>
         <DataBlock
           title="Total Users"
-          value={this.props.main.counter.toLocaleString()}/>
+          value={8}/>
         <DataBlock
           title="Total Meals"
           value="1,203"/>

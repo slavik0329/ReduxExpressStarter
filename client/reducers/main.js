@@ -1,22 +1,16 @@
 const initialState = {
-  page: null,
-  counter: 0
+  account: null
 };
 
 export default function main(state = initialState, action) {
   switch (action.type) {
 
-    case "SET_PAGE":
+    case "SET_ACCOUNT":
       return {
         ...state,
-        page: action.page
+        account: action.account
       }
 
-    case "SET_COUNTER":
-      return {
-        ...state,
-        counter: action.count
-      }
 
   }
 

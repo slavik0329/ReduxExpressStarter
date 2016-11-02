@@ -40,6 +40,10 @@ export class Toolbar extends React.Component {
       {
         name: "Users",
         link: "/users"
+      },
+      {
+        name: "Login",
+        link: "/login"
       }
     ];
 
