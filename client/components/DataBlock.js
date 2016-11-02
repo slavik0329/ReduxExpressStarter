@@ -10,8 +10,10 @@ class DataBlock extends Component {
 
   render() {
     return <div style={styles.container}>
-      <div style={styles.title}>{this.props.title}</div>
-      <div style={styles.value}>{this.props.value}</div>
+      <div>
+        <div style={styles.title}>{this.props.title}</div>
+        <div style={styles.value}>{this.props.value}</div>
+      </div>
     </div>;
   }
 }
@@ -20,10 +22,11 @@ export default DataBlock;
 
 const styles = {
   container: {
-    // width: 160,
+    display: "flex",
     flexGrow: 1,
-    height: 80,
-    padding: 20,
+    flexDirection: "column",
+    justifyContent: "center",
+    height: 100,
     borderRadius: 4,
     margin: "6px 3px",
     backgroundColor: "#FFF"
@@ -33,14 +36,13 @@ const styles = {
     fontSize: 20,
     fontWeight: 300,
     color: "#666",
-    marginTop: 6,
     fontFamily: "Roboto Slab",
   },
   value: {
     textAlign: "center",
     fontSize: 28,
     fontWeight: 200,
-    marginTop: 10,
+    marginTop: 2,
     color: "#666"
   }
 };

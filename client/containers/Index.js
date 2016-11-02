@@ -4,6 +4,7 @@ import React, {Component} from "react";
 import Page from "./Page";
 import DataBlock from "../components/DataBlock";
 import SectionTitle from "../components/SectionTitle";
+import {BtcTicker} from 'slavik-component-library';
 
 import {connect} from 'react-redux'
 
@@ -34,8 +35,8 @@ class Index extends Component {
           title="Total Meals"
           value="1,203"/>
         <DataBlock
-          title="Today's Posts"
-          value="239"/>
+          title="BTC Price"
+          value={<BtcTicker/>} />
       </div>
 
     </Page>;
