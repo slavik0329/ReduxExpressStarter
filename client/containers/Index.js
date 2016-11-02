@@ -8,6 +8,7 @@ import {BtcTicker} from 'slavik-component-library';
 import { browserHistory } from 'react-router'
 
 import {connect} from 'react-redux'
+import {fetchDashboard} from '../actions/main';
 
 class Index extends Component {
   constructor (props) {
@@ -18,6 +19,8 @@ class Index extends Component {
   }
 
   componentDidMount() {
+    this.props.dispatch(fetchDashboard());
+
     setTimeout(()=>{ // Wait for account load
       if ( !this.props.main.account ) {
         browserHistory.push("/login");
@@ -35,13 +38,13 @@ class Index extends Component {
       <div style={styles.dataBlockHolder}>
         <DataBlock
           title="Total Users"
-          value={8}/>
+          value={this.props.main.dashboard.userCount}/>
         <DataBlock
           title="Total Meals"
           value="1,203"/>
         <DataBlock
           title="BTC Price"
-          value={<BtcTicker/>} />
+          value={<BtcTicker currency={"CNY"}/>} />
       </div>
 
     </Page>;

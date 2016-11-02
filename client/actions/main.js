@@ -9,6 +9,19 @@ function setAccount(account) {
   }
 }
 
+export function fetchDashboard () {
+  return (dispatch) =>{
+    setTimeout(()=>{
+      API.adminGetDashboard(res=>{
+        dispatch({
+          type: "SET_DASHBOARD",
+          dashboard: res.dashboard
+        })
+      })
+    }, 10);
+  }
+}
+
 export function fetchUsersList () {
   return (dispatch) =>{
     setTimeout(()=>{

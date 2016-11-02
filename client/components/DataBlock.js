@@ -12,7 +12,7 @@ class DataBlock extends Component {
     return <div style={styles.container}>
       <div>
         <div style={styles.title}>{this.props.title}</div>
-        <div style={styles.value}>{this.props.value}</div>
+        <div style={styles.value}>{this.props.value?this.props.value:"..."}</div>
       </div>
     </div>;
   }

@@ -1,6 +1,9 @@
 const initialState = {
   account: null,
-  usersList: null
+  usersList: null,
+  dashboard: {
+    userCount: null
+  }
 };
 
 export default function main(state = initialState, action) {
@@ -16,6 +19,12 @@ export default function main(state = initialState, action) {
       return {
         ...state,
         usersList: action.usersList
+      }
+
+    case "SET_DASHBOARD":
+      return {
+        ...state,
+        dashboard: action.dashboard
       }
 
   }
