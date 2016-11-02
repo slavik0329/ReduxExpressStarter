@@ -5,7 +5,6 @@ import Page from "./Page";
 import DataBlock from "../components/DataBlock";
 
 import {connect} from 'react-redux'
-import {setCounter} from '../actions/main'
 
 class Index extends Component {
   constructor (props) {
@@ -16,9 +15,10 @@ class Index extends Component {
   }
 
   componentDidMount() {
-    setInterval(()=>{
-      this.props.dispatch(setCounter(this.props.main.counter+1));
-    }, 300);
+
+  }
+
+  componentWillUnmount() {
   }
 
   render() {
@@ -26,12 +26,14 @@ class Index extends Component {
       <div style={styles.dataBlockHolder}>
         <DataBlock
           title="Total Users"
-          value={this.props.main.counter}/>
+          value={this.props.main.counter.toLocaleString()}/>
         <DataBlock
           title="Total Meals"
           value="1,203"/>
+        <DataBlock
+          title="Today's Posts"
+          value="239"/>
       </div>
-
 
     </Page>;
   }
@@ -47,10 +49,10 @@ export default connect(mapStateToProps)(Index);
 
 const styles = {
   container: {
-    padding: 10
+    padding: 10,
   },
   dataBlockHolder: {
     display: "flex",
-    justifyContent: "space-between"
+    justifyContent: "center"
   }
 };

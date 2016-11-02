@@ -24,7 +24,8 @@ const styles = {
     height: 80,
     border: "1px solid #EEE",
     padding: 20,
-    borderRadius: 4
+    borderRadius: 4,
+    margin: 6
   },
   title: {
     textAlign: "center",

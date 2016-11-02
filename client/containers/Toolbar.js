@@ -113,6 +113,7 @@ const styles={
   logoText: {
     position: "relative",
     top: -6,
+    left: 2,
     fontFamily: "Roboto Slab",
     color: "#FFF",
     fontSize: 22,
