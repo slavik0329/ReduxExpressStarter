@@ -17,6 +17,8 @@ const createStoreWithMiddleware = applyMiddleware(thunkMiddleware, logger)(creat
 
 const store = createStoreWithMiddleware(reducers);
 
+window.store = store;
+
 const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(

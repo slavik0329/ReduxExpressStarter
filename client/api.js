@@ -1,4 +1,4 @@
-import Config from './config';
+import Config from "./config";
 
 module.exports = {
 
@@ -28,7 +28,7 @@ module.exports = {
   getLoginStatus: function (callback) {
     fetch('http://' + Config.url + '/getLoginStatus').then((res) => res.json()).then((res) => {
       callback(res);
-    }).catch((err)=> {
+    }).catch((err) => {
       callback(err)
     })
   },
@@ -38,7 +38,29 @@ module.exports = {
     }).catch((err) => {
       callback(err)
     })
-  }
+  },
+  adminGetUsers: function (callback) {
+    const state = window.store.getState();
+
+    if ( !state.main.account) {
+      return;
+    }
+
+    fetch('http://' + Config.url + '/adminGetUsers', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: Serialize({ // Serialize urlencodes the form data
+        token: state.main.account.token,
+      })
+    }).then((res) => res.json()).then((res) => {
+      callback(res);
+    }).catch(() => {
+      callback({error: "Issues with connecting to Unsung"})
+    })
+  },
 };
 
 /**
@@ -46,7 +68,7 @@ module.exports = {
  */
 function Serialize(obj) {
   const str = [];
-  for(let p in obj)
+  for (let p in obj)
     if (obj.hasOwnProperty(p)) {
       str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
     }

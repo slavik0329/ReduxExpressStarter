@@ -12,9 +12,11 @@ function setAccount(account) {
 export function login(email, password) {
   return (dispatch) => {
     API.login(email, password, res=>{
-      dispatch(setAccount(res.user));
-      Utils.setStore("account", res.user);
-      browserHistory.push('/')
+      if ( res.user.admin ) {
+        dispatch(setAccount(res.user));
+        Utils.setStore("account", res.user);
+        browserHistory.push('/')
+      }
     });
   }
 }

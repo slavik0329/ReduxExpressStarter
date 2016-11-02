@@ -44,7 +44,6 @@ export class Toolbar extends React.Component {
     ];
 
     if ( this.props.main.account ) {
-      console.log(this.props)
       links.push({
         name: "Logout (" + this.props.main.account.local.username + ")",
         link: "/logout",
