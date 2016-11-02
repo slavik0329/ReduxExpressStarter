@@ -1,11 +1,10 @@
-import React, { PropTypes } from 'react'
-import { connect } from 'react-redux'
+import React, {PropTypes} from "react";
+import {connect} from "react-redux";
 import Radium from "radium";
-import { Link } from 'react-router'
-
-import ToolbarLink from '../components/ToolbarLink'
-import FaBars from 'react-icons/lib/fa/bars';
-import {logout} from '../actions/main';
+import {Link} from "react-router";
+import ToolbarLink from "../components/ToolbarLink";
+import FaBars from "react-icons/lib/fa/bars";
+import {logout} from "../actions/main";
 
 const mapStateToProps = (state) => ({
   main: state.main
@@ -16,7 +15,7 @@ export class Toolbar extends React.Component {
     selectedLink: React.PropTypes.string
   };
 
-  constructor (props) {
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -31,23 +30,25 @@ export class Toolbar extends React.Component {
     })
   }
 
-  render () {
-    let links = [
-      {
-        name: "Dashboard",
-        link: "/"
-      },
-      {
-        name: "Users",
-        link: "/users"
-      }
-    ];
+  render() {
+    let links = [];
 
-    if ( this.props.main.account ) {
+    if (this.props.main.account) {
+      links = [
+        {
+          name: "Dashboard",
+          link: "/"
+        },
+        {
+          name: "Users",
+          link: "/users"
+        }
+      ];
+
       links.push({
         name: "Logout (" + this.props.main.account.local.username + ")",
         link: "/logout",
-        onPress: ()=>{
+        onPress: () => {
           this.props.dispatch(logout());
         }
       });
@@ -65,7 +66,7 @@ export class Toolbar extends React.Component {
             <Link to='/'>
               <img
                 style={styles.logoImage}
-                src="icon.png" />
+                src="icon.png"/>
               <span
                 style={styles.logoText}>Unsung (admin)</span>
             </Link>
@@ -76,7 +77,7 @@ export class Toolbar extends React.Component {
             style={styles.tools}>
 
             <div style={styles.links}>
-              {links.map(link=><ToolbarLink
+              {links.map(link => <ToolbarLink
                 selectedLink={this.props.selectedLink}
                 key={link.name}
                 name={link.name}
@@ -95,9 +96,9 @@ export class Toolbar extends React.Component {
 
           <div
             style={[styles.mobileMenu, {
-              display: this.state.mobileMenuOpen?"block":"none"
+              display: this.state.mobileMenuOpen ? "block" : "none"
             }]}>
-            {links.map(link=><ToolbarLink
+            {links.map(link => <ToolbarLink
               type="block"
               selectedLink={this.props.selectedLink}
               key={link.name}
@@ -111,7 +112,7 @@ export class Toolbar extends React.Component {
   }
 }
 
-const styles={
+const styles = {
   container: {
     position: "relative",
     backgroundColor: "#1b7eaa",
@@ -120,12 +121,12 @@ const styles={
   },
   logo: {
     position: "absolute",
-    left:10,
-    top:14,
+    left: 10,
+    top: 14,
   },
   logoImage: {
-    width:30,
-    height:30
+    width: 30,
+    height: 30
   },
   logoText: {
     position: "relative",
