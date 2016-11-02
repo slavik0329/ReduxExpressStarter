@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { login } from '../actions/main';
 
 import Toolbar from './Toolbar'
-import API from '../api'
 
 const mapStateToProps = (state) => ({
   main: state.main
@@ -17,7 +16,7 @@ export class LoginPage extends React.Component {
     super(props);
 
     this.state = {
-      email: "",
+      email: "slavik0329@gmail.com ",
       password: ""
     }
   }

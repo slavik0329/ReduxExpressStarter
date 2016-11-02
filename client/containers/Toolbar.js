@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
+import Radium from "radium";
 import { Link } from 'react-router'
 
 import ToolbarLink from '../components/ToolbarLink'
 import FaBars from 'react-icons/lib/fa/bars';
-
-const Radium = require('radium');
+import {logout} from '../actions/main';
 
 const mapStateToProps = (state) => ({
   main: state.main
@@ -44,9 +44,13 @@ export class Toolbar extends React.Component {
     ];
 
     if ( this.props.main.account ) {
+      console.log(this.props)
       links.push({
-        name: "Logout",
-        link: "/logout"
+        name: "Logout (" + this.props.main.account.local.username + ")",
+        link: "/logout",
+        onPress: ()=>{
+          this.props.dispatch(logout());
+        }
       });
     } else {
       links.push({
@@ -78,6 +82,7 @@ export class Toolbar extends React.Component {
                 key={link.name}
                 name={link.name}
                 anchor={link.anchor}
+                onPress={link.onPress}
                 dest={link.link}/>)}
             </div>
 
@@ -98,6 +103,7 @@ export class Toolbar extends React.Component {
               selectedLink={this.props.selectedLink}
               key={link.name}
               name={link.name}
+              onPress={link.onPress}
               dest={link.link}/>)}
           </div>
         </div>

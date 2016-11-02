@@ -11,7 +11,6 @@ export default (
 		<IndexRoute component={Index} />
 		<Route path="/users" component={UsersPage} />
 		<Route path="/login" component={LoginPage} />
-		<Route path="*" component={Index}/>
 
 	</Route>
 );

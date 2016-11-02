@@ -1,5 +1,6 @@
 import API from '../api';
 import Utils from '../utils';
+import { browserHistory } from 'react-router'
 
 function setAccount(account) {
   return {
@@ -13,7 +14,16 @@ export function login(email, password) {
     API.login(email, password, res=>{
       dispatch(setAccount(res.user));
       Utils.setStore("account", res.user);
+      browserHistory.push('/')
     });
+  }
+}
+
+export function logout() {
+  return (dispatch) => {
+    dispatch(setAccount(null));
+    Utils.setStore("account", null);
+    browserHistory.push('/login')
   }
 }
 
@@ -21,10 +31,7 @@ export function checkLogin() {
   return (dispatch, getState) => {
     const account = Utils.getStore("account");
     if ( account ) {
-      console.log("Found in store")
       dispatch(setAccount(account));
-    } else {
-      console.log("Not found");
     }
   }
 }

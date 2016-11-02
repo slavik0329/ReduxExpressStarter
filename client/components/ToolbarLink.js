@@ -43,14 +43,14 @@ export class ToolbarLink extends React.Component {
 
     let inner;
 
-    if ( !this.props.anchor ) {
-      inner = <Link2
-        to={this.props.dest}
-        style={[styles.link, linkStyle]}>{this.props.name}</Link2>
-    } else if (this.props.onPress) {
+    if ( this.props.onPress ) {
       inner = <div
         style={[styles.link, linkStyle]}
         onClick={this.props.onPress}>{this.props.name}</div>
+    } else if (!this.props.anchor) {
+      inner = <Link2
+        to={this.props.dest}
+        style={[styles.link, linkStyle]}>{this.props.name}</Link2>
     } else {
       inner = <div
         style={[styles.link, linkStyle]}
