@@ -83,6 +83,29 @@ module.exports = {
       callback({error: "Issues with connecting to Unsung"})
     })
   },
+  adminGetUser: function (userId, callback) {
+    const state = window.store.getState();
+
+    if ( !state.main.account) {
+      return;
+    }
+
+    fetch('http://' + Config.url + '/adminGetUser', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: Serialize({ // Serialize urlencodes the form data
+        token: state.main.account.token,
+        userId
+      })
+    }).then((res) => res.json()).then((res) => {
+      callback(res);
+    }).catch(() => {
+      callback({error: "Issues with connecting to Unsung"})
+    })
+  },
 };
 
 /**

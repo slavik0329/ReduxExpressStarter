@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import Radium from "radium";
+import { browserHistory } from 'react-router'
 
 class UserRow extends Component {
   static propTypes = {
@@ -18,9 +19,15 @@ class UserRow extends Component {
     }
   }
 
+  openUser() {
+    browserHistory.push("/user/" + this.props.data._id);
+  }
+
   render() {
     return <div style={styles.container}>
-      <div style={styles.username}>{this.props.data.local.username}</div>
+      <div
+        style={styles.username}
+        onClick={::this.openUser}>{this.props.data.local.username}</div>
       <div style={styles.email}>{this.props.data.local.email}</div>
       <div style={styles.userType}>{this.getUserType()}</div>
     </div>;

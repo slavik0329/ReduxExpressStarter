@@ -66,7 +66,7 @@ export class Toolbar extends React.Component {
             <Link to='/'>
               <img
                 style={styles.logoImage}
-                src="icon.png"/>
+                src="/icon.png"/>
               <span
                 style={styles.logoText}>Unsung (admin)</span>
             </Link>
