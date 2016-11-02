@@ -44,6 +44,6 @@
     "redux": "^3.0.4",
     "redux-logger": "^2.7.4",
     "redux-thunk": "^2.1.0",
-    "slavik-component-library": "slavik0329/slavik-component-library#bfb2b0537c4625df14e8e21459c4e94d4fafd2e1"
+    "slavik-component-library": "slavik0329/slavik-component-library#3541b059f25a3e71f4a36dec33cbb706c2b82ceb"
   }
 }

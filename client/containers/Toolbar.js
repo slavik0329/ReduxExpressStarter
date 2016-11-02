@@ -21,7 +21,6 @@ export class Toolbar extends React.Component {
     this.state = {
       mobileMenuOpen: false
     };
-
   }
 
   handleMobileMenuClick() {
@@ -71,7 +70,6 @@ export class Toolbar extends React.Component {
                 style={styles.logoText}>Unsung (admin)</span>
             </Link>
           </div>
-
 
           <div
             style={styles.tools}>
@@ -172,7 +170,7 @@ const styles = {
     backgroundColor: "#1b7eaa",
     '@media (min-width: 536px)': {
       display: 'none',
-    },
+    }
   }
 };
 
