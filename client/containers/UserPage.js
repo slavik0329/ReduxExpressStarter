@@ -39,13 +39,13 @@ class UserPage extends Component {
     });
   }
 
-  handleDriverSwitch(val) {
+  handleDriverSwitch(val) { // TODO
     this.setState({
       driverEnabled: val,
     });
   }
 
-  handleRestaurantSwitch(val) {
+  handleRestaurantSwitch(val) { //TODO
     this.setState({
       restaurantEnabled: val,
     });
