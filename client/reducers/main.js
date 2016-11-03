@@ -19,7 +19,7 @@ export default function main(state = initialState, action) {
       return {
         ...state,
         usersList: action.usersList
-      }
+      };
 
     case "SET_DASHBOARD":
       return {

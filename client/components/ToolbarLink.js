@@ -1,5 +1,5 @@
-import React, { PropTypes } from 'react'
-import { Link } from 'react-router'
+import React from "react";
+import {Link} from "react-router";
 import Radium from "radium";
 
 const Link2 = Radium(Link);
@@ -22,10 +22,10 @@ export class ToolbarLink extends React.Component {
     document.getElementById(this.props.anchor).scrollIntoView();
   }
 
-  render () {
+  render() {
     let linkStyle;
 
-    if ( this.props.selectedLink == this.props.name ) {
+    if (this.props.selectedLink == this.props.name) {
       linkStyle = styles.selectedLink
     }
 
@@ -33,7 +33,7 @@ export class ToolbarLink extends React.Component {
       display: this.props.type
     };
 
-    if ( this.props.type == "block" ) {
+    if (this.props.type == "block") {
       containerStyle = {
         ...containerStyle,
         textAlign: "center",
@@ -43,7 +43,7 @@ export class ToolbarLink extends React.Component {
 
     let inner;
 
-    if ( this.props.onPress ) {
+    if (this.props.onPress) {
       inner = <div
         style={[styles.link, linkStyle]}
         onClick={this.props.onPress}>{this.props.name}</div>
@@ -66,7 +66,7 @@ export class ToolbarLink extends React.Component {
   }
 }
 
-const styles={
+const styles = {
 
   link: {
     color: "#FFF",
@@ -82,12 +82,8 @@ const styles={
     borderBottom: "1px solid rgba(255,255,255,.6)",
     paddingBottom: 2
   },
-  linkContainer: {
-  }
+  linkContainer: {}
 
 };
 
 export default Radium(ToolbarLink)
-/**
- * Created by stevendakh on 11/1/16.
- */

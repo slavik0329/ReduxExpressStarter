@@ -1,15 +1,15 @@
 'use strict';
 
-import React, {Component} from "react";
-import Radium from "radium";
-import {connect} from "react-redux";
-import API from "../api";
-import Page from "./Page";
-import SectionTitle from "../components/SectionTitle";
-import SwitchWithLabel from "../components/SwitchWithLabel";
+import React, { Component } from 'react';
+import Radium from 'radium';
+import { connect } from 'react-redux';
+import API from '../api';
+import Page from './Page';
+import SectionTitle from '../components/SectionTitle';
+import SwitchWithLabel from '../components/SwitchWithLabel';
 
 const mapStateToProps = (state) => ({
-  main: state.main
+  main: state.main,
 });
 
 class UserPage extends Component {
@@ -25,29 +25,29 @@ class UserPage extends Component {
 
   componentDidMount() {
     setTimeout(() => {
-      this.loadUser()
+      this.loadUser();
     }, 10);
   }
 
   loadUser() {
-    API.adminGetUser(this.props.params.id, (res) => {
+    API.adminGetUser(this.props.params.id, ({ user }) => {
       this.setState({
-        userData: res.user,
-        driverEnabled: res.user.local.driverEnabled,
-        restaurantEnabled: res.user.local.restaurantEnabled,
-      })
+        userData: user,
+        driverEnabled: user.local.driverEnabled,
+        restaurantEnabled: user.local.restaurantEnabled,
+      });
     });
   }
 
   handleDriverSwitch(val) {
     this.setState({
-      driverEnabled: val
+      driverEnabled: val,
     });
   }
 
   handleRestaurantSwitch(val) {
     this.setState({
-      restaurantEnabled: val
+      restaurantEnabled: val,
     });
   }
 
@@ -55,7 +55,7 @@ class UserPage extends Component {
     if (!this.state.userData.local.restaurantEnabled) {
       return <SwitchWithLabel onChange={::this.handleDriverSwitch}
                               active={this.state.driverEnabled}
-                              label={"Driver Enabled"}/>
+                              label={'Driver Enabled'}/>;
     }
   }
 
@@ -63,7 +63,7 @@ class UserPage extends Component {
     if (!this.state.userData.local.driverEnabled) {
       return <SwitchWithLabel onChange={::this.handleRestaurantSwitch}
                               active={this.state.restaurantEnabled}
-                              label={"Restaurant Enabled"}/>
+                              label={'Restaurant Enabled'}/>;
     }
   }
 
@@ -72,7 +72,7 @@ class UserPage extends Component {
       return null;
     }
 
-    return <Page pageName={"Users"} style={styles.container}>
+    return <Page pageName={'Users'} style={styles.container}>
       <div>
         <SectionTitle title={this.state.userData.local.username}/>
 
@@ -88,6 +88,6 @@ export default connect(mapStateToProps)(Radium(UserPage));
 
 const styles = {
   container: {
-    padding: "10px 10px 20px 10px"
-  }
+    padding: '10px 10px 20px 10px',
+  },
 };
