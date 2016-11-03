@@ -8,12 +8,17 @@ class SwitchWithLabel extends Component {
   static propTypes = {
     label: React.PropTypes.string,
     active: React.PropTypes.bool,
-    onChange: React.PropTypes.func
+    onChange: React.PropTypes.func,
+    labelWidth: React.PropTypes.number
+  };
+
+  static defaultProps = {
+    labelWidth: 160
   };
 
   render() {
     return <div style={styles.container}>
-      {this.props.label}
+      <div style={{width:this.props.labelWidth, display: "inline-block"}}>{this.props.label}</div>
       <span style={styles.switchHolder}>
         <Switch onChange={this.props.onChange}
                 checked={this.props.active}/>
@@ -31,7 +36,7 @@ const styles = {
   },
   switchHolder: {
     position: "relative",
-    top: 8,
+    top: 10,
     left: 10
   }
 };

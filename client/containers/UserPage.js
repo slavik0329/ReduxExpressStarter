@@ -88,6 +88,6 @@ export default connect(mapStateToProps)(Radium(UserPage));
 
 const styles = {
   container: {
-    padding: 10
+    padding: "10px 10px 20px 10px"
   }
 };

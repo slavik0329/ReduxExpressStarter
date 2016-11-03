@@ -24,10 +24,9 @@ class UserRow extends Component {
   }
 
   render() {
-    return <div style={styles.container}>
+    return <div style={styles.container} onClick={::this.openUser}>
       <div
-        style={styles.username}
-        onClick={::this.openUser}>{this.props.data.local.username}</div>
+        style={styles.username}>{this.props.data.local.username}</div>
       <div style={styles.email}>{this.props.data.local.email}</div>
       <div style={styles.userType}>{this.getUserType()}</div>
     </div>;

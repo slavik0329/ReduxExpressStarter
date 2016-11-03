@@ -79,8 +79,8 @@ const styles={
     }
   },
   selectedLink: {
-    borderBottom: "1px solid #FFF",
-    paddingBottom: 4
+    borderBottom: "1px solid rgba(255,255,255,.6)",
+    paddingBottom: 2
   },
   linkContainer: {
   }
