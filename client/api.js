@@ -1,6 +1,6 @@
 import Config from "./config";
 
-module.exports = {
+const API = {
 
   login (email, password, callback) {
     if (!email || !password) {
@@ -107,6 +107,8 @@ module.exports = {
     })
   },
 };
+
+export default API;
 
 /**
  * @return {string}
