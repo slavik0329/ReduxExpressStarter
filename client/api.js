@@ -2,7 +2,7 @@ import Config from "./config";
 
 module.exports = {
 
-  login: function (email, password, callback) {
+  login (email, password, callback) {
     if (!email || !password) {
       return false;
     }
@@ -25,21 +25,21 @@ module.exports = {
       callback({error: "Issues with connecting to Unsung"})
     })
   },
-  getLoginStatus: function (callback) {
+  getLoginStatus (callback) {
     fetch('http://' + Config.url + '/getLoginStatus').then((res) => res.json()).then((res) => {
       callback(res);
     }).catch((err) => {
       callback(err)
     })
   },
-  logout: function (callback) {
+  logout (callback) {
     fetch('http://' + Config.url + '/logout').then((res) => res.json()).then((res) => {
       callback(res);
     }).catch((err) => {
       callback(err)
     })
   },
-  adminGetUsers: function (callback) {
+  adminGetUsers (callback) {
     const state = window.store.getState();
 
     if ( !state.main.account) {
@@ -61,7 +61,7 @@ module.exports = {
       callback({error: "Issues with connecting to Unsung"})
     })
   },
-  adminGetDashboard: function (callback) {
+  adminGetDashboard (callback) {
     const state = window.store.getState();
 
     if ( !state.main.account) {
@@ -83,7 +83,7 @@ module.exports = {
       callback({error: "Issues with connecting to Unsung"})
     })
   },
-  adminGetUser: function (userId, callback) {
+  adminGetUser (userId, callback) {
     const state = window.store.getState();
 
     if ( !state.main.account) {
