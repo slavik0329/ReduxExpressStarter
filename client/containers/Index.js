@@ -3,35 +3,36 @@
 import React, {Component} from "react";
 import Page from "./Page";
 import DataBlock from "../components/DataBlock";
+import LoadingPage from "../components/LoadingPage";
 import SectionTitle from "../components/SectionTitle";
-import {BtcTicker} from 'slavik-component-library';
-import { browserHistory } from 'react-router'
-
-import {connect} from 'react-redux'
-import {fetchDashboard} from '../actions/main';
+import {BtcTicker} from "slavik-component-library";
+import {browserHistory} from "react-router";
+import {connect} from "react-redux";
+import {fetchDashboard} from "../actions/main";
 
 class Index extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
 
-    this.state = {
-    };
+    this.state = {};
   }
 
   componentDidMount() {
     this.props.dispatch(fetchDashboard());
 
-    setTimeout(()=>{ // Wait for account load
-      if ( !this.props.main.account ) {
-        browserHistory.push("/login");
-      }
-    }, 50);
+    if (!this.props.main.account) {
+      browserHistory.push("/login");
+    }
   }
 
   componentWillUnmount() {
   }
 
   render() {
+    if (this.props.main.dashboard.userCount === null) {
+      return <LoadingPage />;
+    }
+
     return <Page pageName={"Dashboard"} style={styles.container}>
       <SectionTitle title={"Dashboard"}/>
 
@@ -44,7 +45,7 @@ class Index extends Component {
           value="1,203"/>
         <DataBlock
           title="BTC Price"
-          value={<BtcTicker currency={"CNY"}/>} />
+          value={<BtcTicker currency={"CNY"}/>}/>
       </div>
 
     </Page>;

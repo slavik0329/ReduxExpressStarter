@@ -7,6 +7,7 @@ import API from '../api';
 import Page from './Page';
 import SectionTitle from '../components/SectionTitle';
 import SwitchWithLabel from '../components/SwitchWithLabel';
+import LoadingPage from '../components/LoadingPage';
 
 const mapStateToProps = (state) => ({
   main: state.main,
@@ -24,9 +25,7 @@ class UserPage extends Component {
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      this.loadUser();
-    }, 10);
+    this.loadUser();
   }
 
   loadUser() {
@@ -69,7 +68,7 @@ class UserPage extends Component {
 
   render() {
     if (!this.state.userData) {
-      return null;
+      return <LoadingPage/>;
     }
 
     return <Page pageName={'Users'} style={styles.container}>

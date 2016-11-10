@@ -58,8 +58,20 @@ export function logout() {
 export function checkLogin() {
   return (dispatch) => {
     const account = Utils.getStore("account");
+
+    dispatch(setAccount(account)); // Temporarily use cache data
+
     if ( account ) {
-      dispatch(setAccount(account));
+      API.checkToken(account.token, res=>{
+        if ( res.tokenValid ) {
+          dispatch(setAccount(account));
+        } else {
+          dispatch(logout());
+        }
+      });
+    } else {
+      dispatch(logout());
     }
+
   }
 }

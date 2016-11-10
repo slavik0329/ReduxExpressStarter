@@ -15,7 +15,7 @@ const mapStateToProps = (state) => ({
 });
 
 class UsersPage extends Component {
-  componentDidMount () {
+  componentWillMount () {
     this.props.dispatch(fetchUsersList());
   }
 

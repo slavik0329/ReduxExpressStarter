@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
 
 export class App extends React.Component {
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.dispatch(checkLogin());
   }
 

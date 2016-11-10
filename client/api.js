@@ -1,4 +1,5 @@
 import Config from "./config";
+import { browserHistory } from 'react-router'
 
 const API = {
 
@@ -32,6 +33,22 @@ const API = {
       callback(err)
     })
   },
+  checkToken (token, callback) {
+    fetch('http://' + Config.url + '/checkToken', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: Serialize({ // Serialize urlencodes the form data
+        token,
+      })
+    }).then((res) => res.json()).then((res) => {
+      callback(res);
+    }).catch(() => {
+      callback({error: "Issues with connecting to Unsung"})
+    })
+  },
   logout (callback) {
     fetch('http://' + Config.url + '/logout').then((res) => res.json()).then((res) => {
       callback(res);
@@ -56,6 +73,12 @@ const API = {
         token: state.main.account.token,
       })
     }).then((res) => res.json()).then((res) => {
+      if ( res.error && res.error == "TOKEN" ) {
+        browserHistory.push("/logout");
+
+        return;
+      }
+
       callback(res);
     }).catch(() => {
       callback({error: "Issues with connecting to Unsung"})
@@ -63,7 +86,6 @@ const API = {
   },
   adminGetDashboard (callback) {
     const state = window.store.getState();
-
     if ( !state.main.account) {
       return;
     }
@@ -101,6 +123,12 @@ const API = {
         userId
       })
     }).then((res) => res.json()).then((res) => {
+      if ( res.error && res.error == "TOKEN" ) {
+        browserHistory.push("/logout");
+
+        return;
+      }
+
       callback(res);
     }).catch(() => {
       callback({error: "Issues with connecting to Unsung"})
