@@ -134,6 +134,36 @@ const API = {
       callback({error: "Issues with connecting to Unsung"})
     })
   },
+  adminSetUserFeature (userId, feature, value, callback) {
+    const state = window.store.getState();
+
+    if ( !state.main.account) {
+      return;
+    }
+
+    fetch('http://' + Config.url + '/adminSetUserFeature', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: Serialize({ // Serialize urlencodes the form data
+        token: state.main.account.token,
+        userId,
+        feature,
+        value
+      })
+    }).then((res) => res.json()).then((res) => {
+      if ( res.error && res.error == "TOKEN" ) {
+        browserHistory.push("/logout");
+        return;
+      }
+
+      callback(res);
+    }).catch(() => {
+      callback({error: "Issues with connecting to Unsung"})
+    })
+  }
 };
 
 export default API;

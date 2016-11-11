@@ -34,6 +34,12 @@ export class LoginPage extends React.Component {
     this.props.dispatch(login(this.state.email, this.state.password));
   }
 
+  checkPasswordEnter (evt) {
+    if ( evt.which == 13 ) {
+      this.handleLoginPress();
+    }
+  }
+
   render () {
     return (
       <div>
@@ -53,6 +59,7 @@ export class LoginPage extends React.Component {
             type="password"
             placeholder={"Password"}
             value={this.state.password}
+            onKeyDown={::this.checkPasswordEnter}
             onChange={event=>this.setState({password:event.target.value})}/>
 
           <div

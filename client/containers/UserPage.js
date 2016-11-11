@@ -38,15 +38,19 @@ class UserPage extends Component {
     });
   }
 
-  handleDriverSwitch(val) { // TODO
-    this.setState({
-      driverEnabled: val,
+  handleDriverSwitch(val) {
+    API.adminSetUserFeature(this.props.params.id, "driverEnabled", val, res=>{
+      if (!res.error) {
+        this.loadUser();
+      }
     });
   }
 
-  handleRestaurantSwitch(val) { //TODO
-    this.setState({
-      restaurantEnabled: val,
+  handleRestaurantSwitch(val) {
+    API.adminSetUserFeature(this.props.params.id, "restaurantEnabled", val, res=>{
+      if (!res.error) {
+        this.loadUser();
+      }
     });
   }
 
